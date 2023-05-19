@@ -1,6 +1,8 @@
 package org.sopt.homesool.common.advice;
 
+import org.sopt.homesool.common.dto.ApiResponse;
 import org.sopt.homesool.exception.model.SoptException;
+import org.sopt.homesool.common.dto.Error;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.sopt.homesool.exception.Error;
 
 import java.util.Objects;
 
@@ -29,11 +30,11 @@ public class ControllerExceptionAdvice {
     /**
      * 500 Internal Server
      */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(Exception.class)
-    protected ApiResponse<Object> handleException(final Exception e) {
-        return ApiResponse.error(Error.INTERNAL_SERVER_ERROR);
-    }
+//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//    @ExceptionHandler(Exception.class)
+//    protected ApiResponse<Object> handleException(final Exception e) {
+//        return ApiResponse.error(Error.INTERNAL_SERVER_ERROR);
+//    }
 
     /**
      * Sopt custom error

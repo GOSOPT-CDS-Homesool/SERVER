@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface AlcoholRepository extends Repository<Alcohol, Long> {
     List<Alcohol> findAll();
+    Alcohol findById(Long id);
 }

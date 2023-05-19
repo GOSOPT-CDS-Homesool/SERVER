@@ -1,7 +1,7 @@
 package org.sopt.homesool.exception.model;
 
 import lombok.Getter;
-import org.sopt.homesool.exception.Error;
+import org.sopt.homesool.common.dto.Error;
 
 @Getter
 public class SoptException extends RuntimeException {
