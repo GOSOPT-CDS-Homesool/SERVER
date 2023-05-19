@@ -2,6 +2,7 @@ package org.sopt.homesool.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.homesool.controller.dto.response.ReviewResponseDto;
+import org.sopt.homesool.controller.dto.ReviewAllResponseDto;
 import org.sopt.homesool.domain.Review;
 import org.sopt.homesool.infrastructure.AlcoholRepository;
 import org.sopt.homesool.infrastructure.ReviewRepository;
@@ -9,6 +10,7 @@ import org.sopt.homesool.infrastructure.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,4 +38,21 @@ public class ReviewService {
                 ).collect(Collectors.toList());
     }
 
+    public List<ReviewAllResponseDto> getAllReview() {
+        List<Review> reviews = reviewRepository.findAll();
+        List<ReviewAllResponseDto> reviewDtoList = new ArrayList<>();
+
+        for (Review review: reviews){
+            reviewDtoList.add(
+                    ReviewAllResponseDto.builder()
+                    .image(review.getImage())
+                    .title(review.getTitle())
+                    .contents(review.getContents())
+                    .star(review.getStar())
+                    .build()
+            );
+        }
+
+        return reviewDtoList;
+    }
 }
