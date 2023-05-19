@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Alcohol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,4 +44,12 @@ public class Alcohol {
 
     @Column(nullable = false)
     private boolean twinkle;
+
+    public void updateStock(){
+        this.stock -= 1;
+    }
+
+    public void setSoldOut(boolean isSoldOut){
+        this.soldOut = isSoldOut;
+    }
 }
