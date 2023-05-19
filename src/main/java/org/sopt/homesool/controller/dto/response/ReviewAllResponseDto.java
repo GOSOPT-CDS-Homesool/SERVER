@@ -1,4 +1,4 @@
-package org.sopt.homesool.controller.dto;
+package org.sopt.homesool.controller.dto.response;
 
 import lombok.*;
 import org.sopt.homesool.domain.Review;
@@ -15,5 +15,4 @@ public class ReviewAllResponseDto {
     private String title;
     private String contents;
     private int star;
-
 }
