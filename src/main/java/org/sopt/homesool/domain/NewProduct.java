@@ -8,11 +8,13 @@ import java.io.Serializable;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@IdClass(NewProduct.class)
 public class NewProduct implements Serializable {
     @Id
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "alcoholId", referencedColumnName = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "alcoholId", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     Alcohol alcohol;
 
     @Column(nullable = false)

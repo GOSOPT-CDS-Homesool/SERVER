@@ -1,24 +1,26 @@
 package org.sopt.homesool.domain;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     User user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "alcoholId", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "alcoholId", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     Alcohol alcohol;
 
     @Column(length = 31, nullable = false)
