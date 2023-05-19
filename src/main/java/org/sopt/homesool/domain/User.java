@@ -3,11 +3,13 @@ package org.sopt.homesool.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@DynamicUpdate
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
     @Id
@@ -27,7 +29,7 @@ public class User {
     private int coupon;
 
     @Column(nullable = false)
-    private int interest;
+    private long interest;
 
     @Column(nullable = false)
     private int waiting;
