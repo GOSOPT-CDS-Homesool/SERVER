@@ -1,16 +1,18 @@
 package org.sopt.homesool.domain;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(length = 15, nullable = false)
     private String nickName;
@@ -42,7 +44,7 @@ public class User {
     @Column(nullable = false)
     private int delivered;
 
-    @Column(length = 31, nullable = false)
+    @Column(nullable = false)
     private String address;
 
     @Column(length = 15, nullable = false)
