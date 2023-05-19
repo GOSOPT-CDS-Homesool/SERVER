@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -36,5 +37,5 @@ public class Review {
     private int star;
 
     @Column(nullable = false)
-    private Date date;
+    private LocalDate date;
 }

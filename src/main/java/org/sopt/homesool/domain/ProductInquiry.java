@@ -13,18 +13,21 @@ import java.sql.Date;
 public class ProductInquiry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "id")
     User user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "alcoholId", referencedColumnName = "id")
     Alcohol alcohol;
 
     @Column(nullable = false)
     private Date date;
+
+    @Column(length = 255, nullable = false)
+    private String title;
 
     @Column(length = 255, nullable = false)
     private String contents;
