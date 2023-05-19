@@ -1,5 +1,25 @@
 # 아젠다와 윤돌이의 재미있는 합세
 
+## 팀원 소개
+|                                                                      강윤서                                                                       |                                                                이의제                                                                |
+|:----------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|
+| <img src="https://avatars.githubusercontent.com/u/65678579?v=4" width="300" height="265"/> |                                               <img src="https://avatars.githubusercontent.com/u/12531340?v=4" width="300" height="265"/>                                               |
+|                                                   [yungu0010](https://github.com/yungu0010)                                                    |                                                 [euije](https://github.com/euije)                                                 |
+
+## 역할 분담
+
+| 이름           | 담당 역할                                      | Role |
+|:-------------|:-------------------------------------------|:----:|
+| 이달의 홈술 모두 조회 | [GET] /alcohol                             | 강윤서  |
+| 술 상세 페이지 조회  | [GET] /alcohol/{alcoholId=Long}            | 이의제  |
+| 술 좋아요        | [POST] /alcohol/like?alcoholId=Long        | 강윤서  |
+| 상품후기 조회      | [GET] /alcohol/review/{alcoholId=Long}     | 강윤서  |
+| 상품문의 조회      | [GET] /alcohol/inquiry/{alcoholId=Long}    | 이의제  |
+| 리뷰 모두 조회     | [GET] /alcohol/review                      | 이의제  |
+| 유저정보 조회      | [GET] /user/{userId=Long}                  | 강윤서  |
+| 결제하기         | [POST] /payment?userId=Long&alcoholId&Long | 이의제  |
+
+
 ## ERD
 
 ![homesool](https://github.com/GOSOPT-CDS-Homesool/SERVER/assets/12531340/85e2c2b9-a497-4556-a855-0e102d21b858)
@@ -95,3 +115,192 @@ assignees: ''
 - [ ] todo!
 ```
 
+## 프로젝트 구조
+
+```
+🗂 homesool
+    🗂 common (공통 처리 관련 클래스)
+        🗂 advice
+        🗂 dto
+    🗂 controller (클라이언트의 요청을 받는 컨트롤러 계층)
+        🗂 dto
+            🗂 request
+            🗂 response
+    🗂 domain (도메인)
+    🗂 exception (예외처리)
+        🗂 model
+    🗂 infrastructure (데이터베이스 등 외부 요소와 연결을 수행하는 계층)
+    🗂 service (비즈니스로직이 있는 서비스 계층)
+```
+
+## 🙏 Code Convention
+
+> 💡 **동료들과 말투를 통일하기 위해 컨벤션을 지정합니다.**
+> 오합지졸의 코드가 아닌, **한 사람이 짠 것같은 코드**를 작성하는 것이 추후 유지보수나 협업에서 도움이 됩니다. 내가 코드를 생각하면서 짤 수 있도록 해주는 룰이라고 생각해도 좋습니다!
+
+<details>
+<summary>명명규칙(Naming Conventions)</summary>
+<div markdown="1">
+
+1. 이름으로부터 의도가 읽혀질 수 있게 쓴다.
+
+-   ex)
+
+    ```jsx
+    // bad
+    function q() {
+        // ...stuff...
+    }
+
+    // good
+    function query() {
+        // ..stuff..
+    }
+    ```
+
+2. 오브젝트, 함수, 그리고 인스턴스에는 `camelCase`를 사용한다.
+
+-   ex)
+    ```jsx
+    // bad
+    const OBJEcttsssss = {};
+    const this_is_my_object = {};
+    function c() {}
+
+    // good
+    const thisIsMyObject = {};
+    function thisIsMyFunction() {}
+    ```
+
+3. 클래스나 constructor에는 `PascalCase`를 사용한다.
+
+-   ex)
+    ```jsx
+    // bad
+    function user(options) {
+        this.name = options.name;
+    }
+
+    const bad = new user({
+        name: 'nope',
+    });
+
+    // good
+    class User {
+        constructor(options) {
+            this.name = options.name;
+        }
+    }
+
+    const good = new User({
+        name: 'yup',
+    });
+    ```
+
+4. 함수 이름은 동사 + 명사 형태로 작성한다.
+   ex) `postUserInformation( )`
+5. 약어 사용은 최대한 지양한다.
+6. 이름에 네 단어 이상이 들어가면 팀원과 상의를 거친 후 사용한다
+ </div>
+ </details>
+
+<details>
+<summary>블록(Blocks)</summary>
+<div markdown="1">
+
+1. 복수행의 블록에는 중괄호({})를 사용한다.
+
+-   ex)
+    ```jsx
+    // bad
+    if (test)
+      return false;
+
+    // good
+    if (test) return false;
+
+    // good
+    if (test) {
+      return false;
+    }
+
+    // bad
+    function() { return false; }
+
+    // good
+    function() {
+      return false;
+    }
+
+    ```
+
+2. 복수행 블록의 `if` 와 `else` 를 이용하는 경우 `else` 는 `if` 블록 끝의 중괄호( } )와 같은 행에 위치시킨다.
+
+-   ex)
+    ```java
+    // bad
+    if (test) {
+    thing1();
+    thing2();
+    }
+    else {
+    thing3();
+    }
+
+    // good
+    if (test) {
+      thing1();
+      thing2();
+    } else {
+      thing3();
+    }
+
+    ```
+</div>
+</details>
+
+<details>
+<summary>코멘트(Comments)</summary>
+<div markdown="1">
+
+1. 복수형의 코멘트는 `/** ... */` 를 사용한다.
+
+-   ex)
+    ```jsx
+    // good
+    /**
+     * @param {String} tag
+     * @return {Element} element
+     */
+    
+    function make(tag) {
+        // ...stuff...
+
+        return element;
+    }
+    ```
+
+2. 단일 행의 코멘트에는 `//` 을 사용하고 코멘트를 추가하고 싶은 코드의 상부에 배치한다. 그리고 코멘트의 앞에 빈 행을 넣는다.
+
+-   ex)
+    ```jsx
+    // bad
+    const active = true; // is current tab
+
+    // good
+    // is current tab
+    const active = true;
+
+    // good
+    function getType() {
+        console.log('fetching type...');
+
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
+
+        return type;
+    }
+
+    ```
+</div>
+</details>
