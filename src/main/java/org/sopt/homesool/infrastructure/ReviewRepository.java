@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ReviewRepository extends Repository<Review, Long> {
     List<Review> findByAlcoholId(Long alcoholId);
+    List<Review> findAll();
 }
