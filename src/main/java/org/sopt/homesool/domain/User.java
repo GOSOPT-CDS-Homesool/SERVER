@@ -1,10 +1,12 @@
 package org.sopt.homesool.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -49,4 +51,8 @@ public class User {
 
     @Column(length = 15, nullable = false)
     private String phoneNumber;
+
+    public void updateWaiting(){
+        this.waiting += 1;
+    }
 }
