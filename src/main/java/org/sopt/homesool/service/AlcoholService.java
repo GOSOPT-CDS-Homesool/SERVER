@@ -2,13 +2,11 @@ package org.sopt.homesool.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.homesool.controller.dto.response.ProductInquiryResponseDto;
-import org.sopt.homesool.controller.dto.response.ReviewDetailResponseDto;
 import org.sopt.homesool.controller.dto.response.AlcoholDetailResponseDto;
 import org.sopt.homesool.controller.dto.response.AlcoholResponseDto;
 import org.sopt.homesool.controller.dto.response.TagResponseDto;
 import org.sopt.homesool.domain.Alcohol;
 import org.sopt.homesool.domain.ProductInquiry;
-import org.sopt.homesool.domain.Review;
 import org.sopt.homesool.domain.Tags;
 import org.sopt.homesool.infrastructure.AlcoholRepository;
 import org.sopt.homesool.infrastructure.ProductInquiryRepository;
