@@ -13,7 +13,7 @@ public class UserResponseDto {
     private Rank userRank;
     private int point;
     private int coupon;
-    private int interest;
+    private long interest;
     private int waiting;
     private int finish;
     private int ready;
@@ -22,7 +22,7 @@ public class UserResponseDto {
     private String address;
     private String phoneNumber;
 
-    public static UserResponseDto of(Long id, String nickName, Rank userRank, int point, int coupon, int interest,
+    public static UserResponseDto of(Long id, String nickName, Rank userRank, int point, int coupon, long interest,
                                      int waiting, int finish, int ready, int delivering, int delivered, String address,
                                      String phoneNumber) {
         return UserResponseDto.builder()
