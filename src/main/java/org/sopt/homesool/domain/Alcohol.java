@@ -52,4 +52,6 @@ public class Alcohol {
     public void setSoldOut(boolean isSoldOut){
         this.soldOut = isSoldOut;
     }
+
+    public void setLike(boolean isLike) { this.isLike = isLike; }
 }

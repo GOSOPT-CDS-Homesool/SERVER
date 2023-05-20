@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -87,5 +88,11 @@ public class AlcoholService {
         }
 
         return productInquiryResponseDtoList;
+    }
+
+    public void setLike(Long id) {
+        Alcohol alcohol = alcoholRepository.findById(id);
+        alcohol.setLike(!alcohol.isLike());
+        alcoholRepository.save(alcohol);
     }
 }
