@@ -78,7 +78,7 @@ public class AlcoholService {
                 productInquiryResponseDtoList.add(
                         ProductInquiryResponseDto.builder()
                                 .userName(productInquiry.getUser().getNickName())
-                                .date(productInquiry.getDate().toString())
+                                .date(productInquiry.getDate())
                                 .title(productInquiry.getTitle())
                                 .contents(productInquiry.getContents())
                                 .answer(productInquiry.getAnswer())
