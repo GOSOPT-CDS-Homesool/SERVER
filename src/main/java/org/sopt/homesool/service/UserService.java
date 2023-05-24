@@ -30,7 +30,7 @@ public class UserService {
         return UserResponseDto.builder()
                 .id(id)
                 .nickName(user.getNickName())
-                .userRank(user.getUserRank())
+                .userRank(user.getUserRank().toString())
                 .point(user.getPoint())
                 .coupon(user.getCoupon())
                 .interest(likeCount)
