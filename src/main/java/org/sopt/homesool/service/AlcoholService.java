@@ -1,6 +1,7 @@
 package org.sopt.homesool.service;
 
 import lombok.RequiredArgsConstructor;
+import org.sopt.homesool.common.PriceUtil;
 import org.sopt.homesool.controller.dto.response.ProductInquiryResponseDto;
 import org.sopt.homesool.controller.dto.response.AlcoholDetailResponseDto;
 import org.sopt.homesool.controller.dto.response.AlcoholResponseDto;
@@ -42,7 +43,8 @@ public class AlcoholService {
                         alcohol.isSoldOut(),
                         alcohol.isLike(),
                         alcohol.getSale(),
-                        alcohol.getPrice(),
+                        PriceUtil.addCommaToPrice(alcohol.getPrice()),
+                        PriceUtil.addCommaToPrice(alcohol.getPrice() * (100 - alcohol.getSale()) / 100),
                         alcohol.getImage(),
                         alcohol.getDetailImage(),
                         alcohol.getImageInfoImage(),
@@ -60,8 +62,9 @@ public class AlcoholService {
         return AlcoholDetailResponseDto.builder()
                 .detailImage(alcohol.getDetailImage())
                 .name(alcohol.getName())
-                .price(alcohol.getPrice())
                 .sale(alcohol.getSale())
+                .price(PriceUtil.addCommaToPrice(alcohol.getPrice()))
+                .salePrice(PriceUtil.addCommaToPrice(alcohol.getPrice() * (100 - alcohol.getSale()) / 100))
                 .imageInfoImage(alcohol.getImageInfoImage())
                 .build();
     }
