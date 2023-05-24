@@ -16,7 +16,8 @@ public class AlcoholResponseDto {
     private boolean soldOut;
     private boolean like;
     private int sale;
-    private int price;
+    private String price;
+    private String salePrice;
     private String image;
     private String detailImage;
     private String imageInfoImage;
@@ -25,7 +26,7 @@ public class AlcoholResponseDto {
     private boolean twinkle;
 
     public static AlcoholResponseDto of(Long id, String name, TagResponseDto tags, boolean soldOut,
-                                        boolean like, int sale, int price, String image,
+                                        boolean like, int sale, String price, String salePrice, String image,
                                         String detailImage, String imageInfoImage,
                                         int stock, boolean subscribe, boolean twinkle) {
         return AlcoholResponseDto.builder()
@@ -35,6 +36,7 @@ public class AlcoholResponseDto {
                 .soldOut(soldOut)
                 .like(like)
                 .sale(sale)
+                .salePrice(salePrice)
                 .price(price)
                 .image(image)
                 .detailImage(detailImage)
