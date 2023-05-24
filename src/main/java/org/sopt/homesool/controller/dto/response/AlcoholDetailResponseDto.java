@@ -11,7 +11,8 @@ import java.util.List;
 public class AlcoholDetailResponseDto {
     private String detailImage;
     private String name;
-    private int price;
     private int sale;
+    private String price;
+    private String salePrice;
     private String imageInfoImage;
 }
