@@ -10,7 +10,7 @@ import org.sopt.homesool.domain.Rank;
 public class UserResponseDto {
     private Long id;
     private String nickName;
-    private Rank userRank;
+    private String userRank;
     private int point;
     private int coupon;
     private long interest;
@@ -22,7 +22,7 @@ public class UserResponseDto {
     private String address;
     private String phoneNumber;
 
-    public static UserResponseDto of(Long id, String nickName, Rank userRank, int point, int coupon, long interest,
+    public static UserResponseDto of(Long id, String nickName, String userRank, int point, int coupon, long interest,
                                      int waiting, int finish, int ready, int delivering, int delivered, String address,
                                      String phoneNumber) {
         return UserResponseDto.builder()
